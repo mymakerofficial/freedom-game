@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Value: 1
   length:
     m_OverrideState: 0
-    m_Value: 0.15
+    m_Value: 0.214
     min: 0
     max: 1
   opacity:
