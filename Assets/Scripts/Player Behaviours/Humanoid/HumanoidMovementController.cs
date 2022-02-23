@@ -68,19 +68,36 @@ public class HumanoidMovementController : MonoBehaviour
         GameObject turnReferenceObject = new GameObject();
         turnReferenceObject.transform.parent = camera.transform.parent;
         turnReferenceObject.transform.position = camera.transform.position;
-        turnReferenceObject.transform.rotation = Quaternion.Euler(0, camera.transform.rotation.eulerAngles.y, camera.transform.rotation.eulerAngles.z);
+        turnReferenceObject.transform.rotation = Quaternion.Euler(
+            0, 
+            camera.transform.rotation.eulerAngles.y, 
+            camera.transform.rotation.eulerAngles.z
+        );
         turnReferenceObject.transform.localScale = camera.transform.localScale;
+
+        Matrix4x4 cameraLocalMatrix = Matrix4x4.TRS(
+            camera.transform.position,
+            Quaternion.Euler(
+                0,
+                camera.transform.rotation.eulerAngles.y,
+                camera.transform.rotation.eulerAngles.z
+            ),
+            camera.transform.localScale
+        );
 
         // calculate relative movement vector
         Vector3 move = _velocity.normalized * playerSpeed * _velocity.magnitude * Time.fixedDeltaTime;
-        move = turnReferenceObject.transform.worldToLocalMatrix.inverse * move;
+        move = cameraLocalMatrix * move;
         
         // destroy teporary game object
         Destroy(turnReferenceObject);
 
         // calculate rotation
-        Vector3 rotate = new Vector3(0,
-            transform.rotation.eulerAngles.y + _controls.Humanoid.Turn.ReadValue<Vector2>().x, 0);
+        Vector3 rotate = new Vector3(
+            transform.rotation.eulerAngles.x,
+            transform.rotation.eulerAngles.y + _controls.Humanoid.Turn.ReadValue<Vector2>().x, 
+            transform.rotation.eulerAngles.z
+        );
 
         // move and rotate rigidbody
         _rigidbody.MovePosition(transform.position + move);

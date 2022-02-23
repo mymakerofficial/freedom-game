@@ -56,57 +56,57 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Grappling Hook Left"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""c2886b3d-7ea0-4466-b284-5eb6e1861d6a"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Digital"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Grappling Hook Right"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""190d35da-c2ce-48c2-9656-b664b09fa37b"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Digital"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Grappling Hook Center"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b3642a94-64cb-4bc7-b00b-968af5f82305"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Digital"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Thruster Left"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""6eda6dce-23e4-47f8-8633-bb634ba9b85a"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Thruster Right"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""416e2ea9-5df0-49c0-be00-542dc7307d83"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Thruster Center"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""6f75d801-8568-4f64-a70b-910fe645725d"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -157,7 +157,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""248fe44b-ae73-4a0c-8166-8f2e9e43c2a1"",
-                    ""path"": ""<XRController>{LeftHand}/gripPressed"",
+                    ""path"": ""<XRController>{LeftHand}/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
@@ -168,7 +168,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fd529c6d-8684-4b7d-98a3-89fd85075029"",
-                    ""path"": ""<XRController>{RightHand}/gripPressed"",
+                    ""path"": ""<XRController>{RightHand}/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
@@ -180,7 +180,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""f72e69a0-7027-4803-9f29-d0f5addc799b"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardOrGamepad"",
                     ""action"": ""Thruster Center"",
@@ -190,8 +190,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""aca06f78-5c6f-4818-83c9-acbf88b7a098"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Hold"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardOrGamepad"",
                     ""action"": ""Thruster Center"",
