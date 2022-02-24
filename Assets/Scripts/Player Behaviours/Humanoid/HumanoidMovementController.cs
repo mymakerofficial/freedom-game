@@ -63,17 +63,6 @@ public class HumanoidMovementController : MonoBehaviour
     {
         _velocity.x = _controls.Humanoid.Move.ReadValue<Vector2>().x;
         _velocity.z = _controls.Humanoid.Move.ReadValue<Vector2>().y;
-        
-        // create object with camera transform without x rotation
-        GameObject turnReferenceObject = new GameObject();
-        turnReferenceObject.transform.parent = camera.transform.parent;
-        turnReferenceObject.transform.position = camera.transform.position;
-        turnReferenceObject.transform.rotation = Quaternion.Euler(
-            0, 
-            camera.transform.rotation.eulerAngles.y, 
-            camera.transform.rotation.eulerAngles.z
-        );
-        turnReferenceObject.transform.localScale = camera.transform.localScale;
 
         Matrix4x4 cameraLocalMatrix = Matrix4x4.TRS(
             camera.transform.position,
@@ -88,9 +77,6 @@ public class HumanoidMovementController : MonoBehaviour
         // calculate relative movement vector
         Vector3 move = _velocity.normalized * playerSpeed * _velocity.magnitude * Time.fixedDeltaTime;
         move = cameraLocalMatrix * move;
-        
-        // destroy teporary game object
-        Destroy(turnReferenceObject);
 
         // calculate rotation
         Vector3 rotate = new Vector3(
