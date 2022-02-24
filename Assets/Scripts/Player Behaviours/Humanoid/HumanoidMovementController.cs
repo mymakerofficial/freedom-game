@@ -85,16 +85,14 @@ public class HumanoidMovementController : MonoBehaviour
             transform.rotation.eulerAngles.z
         );
 
-        // move and rotate rigidbody
+        // move rigidbody
         _rigidbody.MovePosition(transform.position + move);
+        
+        // look yaw
         _rigidbody.MoveRotation(Quaternion.Euler(rotate));
         
-        /*
-        camera.transform.rotation = Quaternion.Euler(new Vector3(            
-            Mathf.Clamp(camera.transform.rotation.eulerAngles.x - _controls.Humanoid.Turn.ReadValue<Vector2>().y, -90, 90),
-            camera.transform.rotation.eulerAngles.y,
-            camera.transform.rotation.eulerAngles.z
-        ));
-        */
+        // camera pitch
+        float rotateX = -_controls.Humanoid.Turn.ReadValue<Vector2>().y;
+        camera.transform.Rotate(rotateX, 0, 0);
     }
 }
