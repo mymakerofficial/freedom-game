@@ -56,21 +56,21 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Grappling Hook Left"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""c2886b3d-7ea0-4466-b284-5eb6e1861d6a"",
-                    ""expectedControlType"": ""Digital"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Grappling Hook Right"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""190d35da-c2ce-48c2-9656-b664b09fa37b"",
-                    ""expectedControlType"": ""Digital"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Grappling Hook Center"",
@@ -112,9 +112,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""baa03bd0-b67b-481c-bbc2-c69d7cea6302"",
-                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
-                    ""interactions"": """",
+                    ""id"": ""d1a50ed7-5db9-42ba-857b-0b4bfef5efdb"",
+                    ""path"": ""<XRController>{LeftHand}/trigger"",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
                     ""action"": ""Grappling Hook Left"",
@@ -123,11 +123,33 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""01629df9-784d-48ab-ac10-8567620a9c40"",
+                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grappling Hook Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a8cccae8-df21-49c2-b4e6-18ab5c104e92"",
+                    ""path"": ""<XRController>{RightHand}/trigger"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Grappling Hook Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d416b105-c73a-43d8-8eb6-5acf1234d033"",
                     ""path"": ""<XRController>{RightHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GenericVR"",
+                    ""groups"": """",
                     ""action"": ""Grappling Hook Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -157,7 +179,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""248fe44b-ae73-4a0c-8166-8f2e9e43c2a1"",
-                    ""path"": ""<XRController>{LeftHand}/trigger"",
+                    ""path"": ""<XRController>{LeftHand}/grip"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
@@ -168,7 +190,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fd529c6d-8684-4b7d-98a3-89fd85075029"",
-                    ""path"": ""<XRController>{RightHand}/trigger"",
+                    ""path"": ""<XRController>{RightHand}/grip"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
