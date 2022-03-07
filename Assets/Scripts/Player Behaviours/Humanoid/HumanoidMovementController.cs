@@ -86,7 +86,9 @@ public class HumanoidMovementController : MonoBehaviour
         );
 
         // move rigidbody
-        _rigidbody.MovePosition(transform.position + move);
+        //_rigidbody.MovePosition(transform.position + move);
+        
+        _rigidbody.AddForce(move * 100, ForceMode.Acceleration);
         
         // look yaw
         _rigidbody.MoveRotation(Quaternion.Euler(rotate));
