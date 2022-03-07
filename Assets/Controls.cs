@@ -74,12 +74,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Grappling Hook Center"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""b3642a94-64cb-4bc7-b00b-968af5f82305"",
-                    ""expectedControlType"": ""Digital"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Thruster Left"",
@@ -127,7 +127,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<XRController>{LeftHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""GenericVR"",
                     ""action"": ""Grappling Hook Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -149,7 +149,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<XRController>{RightHand}/triggerPressed"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""GenericVR"",
                     ""action"": ""Grappling Hook Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -158,7 +158,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""a9b4186c-9818-4cf7-a8ec-7c56655d54fa"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""KeyboardOrGamepad"",
                     ""action"": ""Grappling Hook Center"",
@@ -169,7 +169,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""8e05bcfe-1e0f-4b4d-b2bf-7b2240428ba4"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""KeyboardOrGamepad"",
                     ""action"": ""Grappling Hook Center"",
@@ -364,6 +364,34 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""General"",
+            ""id"": ""b13699ec-2f10-49bc-b88f-0f3574ab07a5"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""cd379ea3-eed7-4a9a-9d9a-f5b38e70edc7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fab7cfea-2cfd-4e16-add2-2d55100d838b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardOrGamepad"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -427,6 +455,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Humanoid_ThrusterLeft = m_Humanoid.FindAction("Thruster Left", throwIfNotFound: true);
         m_Humanoid_ThrusterRight = m_Humanoid.FindAction("Thruster Right", throwIfNotFound: true);
         m_Humanoid_ThrusterCenter = m_Humanoid.FindAction("Thruster Center", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_Escape = m_General.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -579,6 +610,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public HumanoidActions @Humanoid => new HumanoidActions(this);
+
+    // General
+    private readonly InputActionMap m_General;
+    private IGeneralActions m_GeneralActionsCallbackInterface;
+    private readonly InputAction m_General_Escape;
+    public struct GeneralActions
+    {
+        private @Controls m_Wrapper;
+        public GeneralActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_General_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_General; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        public void SetCallbacks(IGeneralActions instance)
+        {
+            if (m_Wrapper.m_GeneralActionsCallbackInterface != null)
+            {
+                @Escape.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnEscape;
+            }
+            m_Wrapper.m_GeneralActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
+            }
+        }
+    }
+    public GeneralActions @General => new GeneralActions(this);
     private int m_KeyboardOrGamepadSchemeIndex = -1;
     public InputControlScheme KeyboardOrGamepadScheme
     {
@@ -608,5 +672,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnThrusterLeft(InputAction.CallbackContext context);
         void OnThrusterRight(InputAction.CallbackContext context);
         void OnThrusterCenter(InputAction.CallbackContext context);
+    }
+    public interface IGeneralActions
+    {
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

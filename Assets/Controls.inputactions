@@ -52,12 +52,12 @@
                 },
                 {
                     "name": "Grappling Hook Center",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "b3642a94-64cb-4bc7-b00b-968af5f82305",
-                    "expectedControlType": "Digital",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Thruster Left",
@@ -105,7 +105,7 @@
                     "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "GenericVR",
                     "action": "Grappling Hook Left",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -127,7 +127,7 @@
                     "path": "<XRController>{RightHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "GenericVR",
                     "action": "Grappling Hook Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -136,7 +136,7 @@
                     "name": "",
                     "id": "a9b4186c-9818-4cf7-a8ec-7c56655d54fa",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "KeyboardOrGamepad",
                     "action": "Grappling Hook Center",
@@ -147,7 +147,7 @@
                     "name": "",
                     "id": "8e05bcfe-1e0f-4b4d-b2bf-7b2240428ba4",
                     "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "KeyboardOrGamepad",
                     "action": "Grappling Hook Center",
@@ -338,6 +338,34 @@
                     "processors": "ScaleVector2(x=0.5,y=0.5)",
                     "groups": "KeyboardOrGamepad",
                     "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "General",
+            "id": "b13699ec-2f10-49bc-b88f-0f3574ab07a5",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "cd379ea3-eed7-4a9a-9d9a-f5b38e70edc7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fab7cfea-2cfd-4e16-add2-2d55100d838b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardOrGamepad",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
