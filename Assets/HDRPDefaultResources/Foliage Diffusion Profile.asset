@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Foliage Diffusion Profile
   m_EditorClassIdentifier: 
   profile:
-    name: Foliage
     scatteringDistance: {r: 0.7568628, g: 0.7019608, b: 0.24313727, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
@@ -21,6 +20,5 @@ MonoBehaviour:
     thicknessRemap: {x: 0, y: 0.2873168}
     worldScale: 1
     ior: 1.4
-    hash: 1081692787
+    hash: 1081664181
   m_Version: 1
-  profiles: []
