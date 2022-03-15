@@ -15,6 +15,8 @@ public class GrapplingGunController : MonoBehaviour
     private bool _hasRigidbody;
     private SpringJoint _joint;
     private float _distance;
+
+    private Vector3 _lastPosition;
     
     public InputActionReference inputAction;
     public Transform player;
@@ -97,14 +99,23 @@ public class GrapplingGunController : MonoBehaviour
         _lineRenderer.enabled = false;
         Destroy(_joint);
     }
-    
+
     void Update()
     {
         if (_joint)
         {
+            Vector3 positionDelta = ((transform.position - player.position) - _lastPosition);
+            _lastPosition = transform.position - player.position;
+
             if (_hasRigidbody)
             {
                 _grapplePoint = _grappleHit.position;
+                
+                _grappleHit.GetComponent<Rigidbody>().AddForce(positionDelta * 4, ForceMode.Force);
+            }
+            else
+            {
+                player.GetComponent<Rigidbody>().AddForce(-positionDelta * 25, ForceMode.Impulse);
             }
             
             // shorten joint if needed
@@ -124,6 +135,10 @@ public class GrapplingGunController : MonoBehaviour
             _lineRenderer.positionCount = 2;
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, _grapplePoint);
+        }
+        else
+        {
+            _lastPosition = transform.position - player.position;
         }
     }
 
