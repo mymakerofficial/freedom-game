@@ -16,6 +16,7 @@ public class HumanoidMovementController : MonoBehaviour
     private float _distToGround;
 
     private Vector3 _velocity;
+    private float _cameraPitch;
     
     [Space]
     public float playerSpeed = 2.0f;
@@ -94,7 +95,7 @@ public class HumanoidMovementController : MonoBehaviour
         _rigidbody.MoveRotation(Quaternion.Euler(rotate));
         
         // camera pitch
-        float rotateX = -_controls.Humanoid.Turn.ReadValue<Vector2>().y;
-        camera.transform.Rotate(rotateX, 0, 0);
+        _cameraPitch = Mathf.Clamp(_cameraPitch - _controls.Humanoid.Turn.ReadValue<Vector2>().y, -90, 90);
+        camera.transform.rotation = Quaternion.Euler(_cameraPitch, _rigidbody.transform.rotation.eulerAngles.y, 0);
     }
 }
