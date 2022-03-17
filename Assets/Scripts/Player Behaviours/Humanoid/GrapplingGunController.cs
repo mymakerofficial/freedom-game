@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(LineRenderer))]
 public class GrapplingGunController : MonoBehaviour
 {
     private Controls _controls;
@@ -15,6 +16,8 @@ public class GrapplingGunController : MonoBehaviour
     private bool _hasRigidbody;
     private SpringJoint _joint;
     private float _distance;
+
+    private Vector3 _lastPosition;
     
     public InputActionReference inputAction;
     public Transform player;
@@ -97,15 +100,29 @@ public class GrapplingGunController : MonoBehaviour
         _lineRenderer.enabled = false;
         Destroy(_joint);
     }
-    
+
     void Update()
     {
         if (_joint)
         {
+            Vector3 positionDelta = ((transform.position - player.position) - _lastPosition);
+            _lastPosition = transform.position - player.position;
+
+            float playerPullMultiplier = 1;
+
             if (_hasRigidbody)
             {
                 _grapplePoint = _grappleHit.position;
+                
+                _grappleHit.GetComponent<Rigidbody>().AddForce(positionDelta * 5, ForceMode.Force);
+
+                playerPullMultiplier =
+                    _grappleHit.GetComponent<Rigidbody>().mass / player.GetComponent<Rigidbody>().mass;
             }
+            
+            Debug.Log(playerPullMultiplier);
+            
+            player.GetComponent<Rigidbody>().AddForce(-positionDelta * 16 * playerPullMultiplier, ForceMode.Impulse);
             
             // shorten joint if needed
             float dist = Vector3.Distance(transform.position, _grapplePoint);
@@ -124,6 +141,10 @@ public class GrapplingGunController : MonoBehaviour
             _lineRenderer.positionCount = 2;
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, _grapplePoint);
+        }
+        else
+        {
+            _lastPosition = transform.position - player.position;
         }
     }
 
