@@ -119,9 +119,7 @@ public class GrapplingGunController : MonoBehaviour
                 playerPullMultiplier =
                     _grappleHit.GetComponent<Rigidbody>().mass / player.GetComponent<Rigidbody>().mass;
             }
-            
-            Debug.Log(playerPullMultiplier);
-            
+
             player.GetComponent<Rigidbody>().AddForce(-positionDelta * 16 * playerPullMultiplier, ForceMode.Impulse);
             
             // shorten joint if needed
