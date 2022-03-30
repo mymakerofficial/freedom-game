@@ -27,18 +27,19 @@ public class GrapplingGunController : MonoBehaviour
         _controls = new Controls();
 
         _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.useWorldSpace = true;
 
-        _controls.FindAction(inputAction.name).performed += GrappleInput;
+        inputAction.action.performed += GrappleInput;
     }
     
     private void OnEnable()
     {
-        _controls.Enable();
+        inputAction.action.Enable();
     }
 
     private void OnDestroy()
     {
-        _controls.Disable();
+        inputAction.action.Disable();
     }
     
     private void GrappleInput(InputAction.CallbackContext e)
@@ -146,10 +147,10 @@ public class GrapplingGunController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.color = Color.gray;
-        Gizmos.DrawSphere(transform.position, 0.02f);
+        Gizmos.color = Color.HSVToRGB(0.6f, 0.8f, 1f);
+        Gizmos.DrawSphere(transform.position, 0.03f);
         Gizmos.DrawRay(transform.position, transform.forward);
     }
 }

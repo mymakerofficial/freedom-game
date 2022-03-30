@@ -53,173 +53,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Grappling Hook Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""c2886b3d-7ea0-4466-b284-5eb6e1861d6a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Grappling Hook Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""190d35da-c2ce-48c2-9656-b664b09fa37b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Grappling Hook Center"",
-                    ""type"": ""Button"",
-                    ""id"": ""b3642a94-64cb-4bc7-b00b-968af5f82305"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Thruster Left"",
-                    ""type"": ""Value"",
-                    ""id"": ""6eda6dce-23e4-47f8-8633-bb634ba9b85a"",
-                    ""expectedControlType"": ""Analog"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Thruster Right"",
-                    ""type"": ""Value"",
-                    ""id"": ""416e2ea9-5df0-49c0-be00-542dc7307d83"",
-                    ""expectedControlType"": ""Analog"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Thruster Center"",
-                    ""type"": ""Value"",
-                    ""id"": ""6f75d801-8568-4f64-a70b-910fe645725d"",
-                    ""expectedControlType"": ""Analog"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""d1a50ed7-5db9-42ba-857b-0b4bfef5efdb"",
-                    ""path"": ""<XRController>{LeftHand}/trigger"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": ""GenericVR"",
-                    ""action"": ""Grappling Hook Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""01629df9-784d-48ab-ac10-8567620a9c40"",
-                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GenericVR"",
-                    ""action"": ""Grappling Hook Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a8cccae8-df21-49c2-b4e6-18ab5c104e92"",
-                    ""path"": ""<XRController>{RightHand}/trigger"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": ""GenericVR"",
-                    ""action"": ""Grappling Hook Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d416b105-c73a-43d8-8eb6-5acf1234d033"",
-                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GenericVR"",
-                    ""action"": ""Grappling Hook Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a9b4186c-9818-4cf7-a8ec-7c56655d54fa"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardOrGamepad"",
-                    ""action"": ""Grappling Hook Center"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8e05bcfe-1e0f-4b4d-b2bf-7b2240428ba4"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardOrGamepad"",
-                    ""action"": ""Grappling Hook Center"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""248fe44b-ae73-4a0c-8166-8f2e9e43c2a1"",
-                    ""path"": ""<XRController>{LeftHand}/grip"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GenericVR"",
-                    ""action"": ""Thruster Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fd529c6d-8684-4b7d-98a3-89fd85075029"",
-                    ""path"": ""<XRController>{RightHand}/grip"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GenericVR"",
-                    ""action"": ""Thruster Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f72e69a0-7027-4803-9f29-d0f5addc799b"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardOrGamepad"",
-                    ""action"": ""Thruster Center"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aca06f78-5c6f-4818-83c9-acbf88b7a098"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardOrGamepad"",
-                    ""action"": ""Thruster Center"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""d17a1cd2-5142-4d48-ba91-135ccc0c5081"",
@@ -366,6 +202,186 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""Thruster"",
+            ""id"": ""2909e348-1719-4e36-98db-3c06f6657a87"",
+            ""actions"": [
+                {
+                    ""name"": ""Force Left"",
+                    ""type"": ""Value"",
+                    ""id"": ""ad55a23f-460f-490f-8401-c2b4b5ae1023"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Force Right"",
+                    ""type"": ""Value"",
+                    ""id"": ""e3463003-37c3-4bdb-a134-2261f9ffe33b"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Force Center"",
+                    ""type"": ""Value"",
+                    ""id"": ""03576499-fbb1-44d7-a71e-215a62cf819c"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""26c422ed-c57b-4101-9bff-10557f54375c"",
+                    ""path"": ""<XRController>{LeftHand}/grip"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Force Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30a0bc27-66e3-42b2-94b4-cdb52550a0ce"",
+                    ""path"": ""<XRController>{RightHand}/grip"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Force Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""551238f6-d56f-4919-a162-9065520abc24"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardOrGamepad"",
+                    ""action"": ""Force Center"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""133f3d0e-e0ee-4e7d-88aa-7e609f7d2c8c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardOrGamepad"",
+                    ""action"": ""Force Center"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Grappling Hook"",
+            ""id"": ""586ea08f-193c-4274-9304-12632565cba5"",
+            ""actions"": [
+                {
+                    ""name"": ""Trigger Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""eac25d74-bd5d-4eb7-90cb-ae886420ee58"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Trigger Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""8dc6db31-a939-4463-970c-a4243d0889a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Trigger Center"",
+                    ""type"": ""Button"",
+                    ""id"": ""5139c05b-1028-4704-b2ad-257a427820f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c6304ab1-a0a0-4b1f-91ee-2b3bc3a51b80"",
+                    ""path"": ""<XRController>{LeftHand}/trigger"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Trigger Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c157e79-7f63-4f42-b473-4c8f185e6ef2"",
+                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Trigger Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1db32b75-e5f3-4aa2-a78f-2e1c85382149"",
+                    ""path"": ""<XRController>{RightHand}/trigger"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Trigger Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfdaa065-d348-4a3f-bb58-4dde48fa6523"",
+                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Trigger Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c366ea0-c8ad-4955-ba9e-d475c5c2aa03"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardOrGamepad"",
+                    ""action"": ""Trigger Center"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b83c90a6-c254-45fd-989d-c748799c9285"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardOrGamepad"",
+                    ""action"": ""Trigger Center"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""General"",
             ""id"": ""b13699ec-2f10-49bc-b88f-0f3574ab07a5"",
             ""actions"": [
@@ -449,12 +465,16 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Humanoid_Move = m_Humanoid.FindAction("Move", throwIfNotFound: true);
         m_Humanoid_Turn = m_Humanoid.FindAction("Turn", throwIfNotFound: true);
         m_Humanoid_Jump = m_Humanoid.FindAction("Jump", throwIfNotFound: true);
-        m_Humanoid_GrapplingHookLeft = m_Humanoid.FindAction("Grappling Hook Left", throwIfNotFound: true);
-        m_Humanoid_GrapplingHookRight = m_Humanoid.FindAction("Grappling Hook Right", throwIfNotFound: true);
-        m_Humanoid_GrapplingHookCenter = m_Humanoid.FindAction("Grappling Hook Center", throwIfNotFound: true);
-        m_Humanoid_ThrusterLeft = m_Humanoid.FindAction("Thruster Left", throwIfNotFound: true);
-        m_Humanoid_ThrusterRight = m_Humanoid.FindAction("Thruster Right", throwIfNotFound: true);
-        m_Humanoid_ThrusterCenter = m_Humanoid.FindAction("Thruster Center", throwIfNotFound: true);
+        // Thruster
+        m_Thruster = asset.FindActionMap("Thruster", throwIfNotFound: true);
+        m_Thruster_ForceLeft = m_Thruster.FindAction("Force Left", throwIfNotFound: true);
+        m_Thruster_ForceRight = m_Thruster.FindAction("Force Right", throwIfNotFound: true);
+        m_Thruster_ForceCenter = m_Thruster.FindAction("Force Center", throwIfNotFound: true);
+        // Grappling Hook
+        m_GrapplingHook = asset.FindActionMap("Grappling Hook", throwIfNotFound: true);
+        m_GrapplingHook_TriggerLeft = m_GrapplingHook.FindAction("Trigger Left", throwIfNotFound: true);
+        m_GrapplingHook_TriggerRight = m_GrapplingHook.FindAction("Trigger Right", throwIfNotFound: true);
+        m_GrapplingHook_TriggerCenter = m_GrapplingHook.FindAction("Trigger Center", throwIfNotFound: true);
         // General
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
         m_General_Escape = m_General.FindAction("Escape", throwIfNotFound: true);
@@ -520,12 +540,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Humanoid_Move;
     private readonly InputAction m_Humanoid_Turn;
     private readonly InputAction m_Humanoid_Jump;
-    private readonly InputAction m_Humanoid_GrapplingHookLeft;
-    private readonly InputAction m_Humanoid_GrapplingHookRight;
-    private readonly InputAction m_Humanoid_GrapplingHookCenter;
-    private readonly InputAction m_Humanoid_ThrusterLeft;
-    private readonly InputAction m_Humanoid_ThrusterRight;
-    private readonly InputAction m_Humanoid_ThrusterCenter;
     public struct HumanoidActions
     {
         private @Controls m_Wrapper;
@@ -533,12 +547,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Humanoid_Move;
         public InputAction @Turn => m_Wrapper.m_Humanoid_Turn;
         public InputAction @Jump => m_Wrapper.m_Humanoid_Jump;
-        public InputAction @GrapplingHookLeft => m_Wrapper.m_Humanoid_GrapplingHookLeft;
-        public InputAction @GrapplingHookRight => m_Wrapper.m_Humanoid_GrapplingHookRight;
-        public InputAction @GrapplingHookCenter => m_Wrapper.m_Humanoid_GrapplingHookCenter;
-        public InputAction @ThrusterLeft => m_Wrapper.m_Humanoid_ThrusterLeft;
-        public InputAction @ThrusterRight => m_Wrapper.m_Humanoid_ThrusterRight;
-        public InputAction @ThrusterCenter => m_Wrapper.m_Humanoid_ThrusterCenter;
         public InputActionMap Get() { return m_Wrapper.m_Humanoid; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -557,24 +565,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnJump;
-                @GrapplingHookLeft.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookLeft;
-                @GrapplingHookLeft.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookLeft;
-                @GrapplingHookLeft.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookLeft;
-                @GrapplingHookRight.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookRight;
-                @GrapplingHookRight.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookRight;
-                @GrapplingHookRight.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookRight;
-                @GrapplingHookCenter.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookCenter;
-                @GrapplingHookCenter.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookCenter;
-                @GrapplingHookCenter.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnGrapplingHookCenter;
-                @ThrusterLeft.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterLeft;
-                @ThrusterLeft.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterLeft;
-                @ThrusterLeft.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterLeft;
-                @ThrusterRight.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterRight;
-                @ThrusterRight.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterRight;
-                @ThrusterRight.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterRight;
-                @ThrusterCenter.started -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterCenter;
-                @ThrusterCenter.performed -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterCenter;
-                @ThrusterCenter.canceled -= m_Wrapper.m_HumanoidActionsCallbackInterface.OnThrusterCenter;
             }
             m_Wrapper.m_HumanoidActionsCallbackInterface = instance;
             if (instance != null)
@@ -588,28 +578,108 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @GrapplingHookLeft.started += instance.OnGrapplingHookLeft;
-                @GrapplingHookLeft.performed += instance.OnGrapplingHookLeft;
-                @GrapplingHookLeft.canceled += instance.OnGrapplingHookLeft;
-                @GrapplingHookRight.started += instance.OnGrapplingHookRight;
-                @GrapplingHookRight.performed += instance.OnGrapplingHookRight;
-                @GrapplingHookRight.canceled += instance.OnGrapplingHookRight;
-                @GrapplingHookCenter.started += instance.OnGrapplingHookCenter;
-                @GrapplingHookCenter.performed += instance.OnGrapplingHookCenter;
-                @GrapplingHookCenter.canceled += instance.OnGrapplingHookCenter;
-                @ThrusterLeft.started += instance.OnThrusterLeft;
-                @ThrusterLeft.performed += instance.OnThrusterLeft;
-                @ThrusterLeft.canceled += instance.OnThrusterLeft;
-                @ThrusterRight.started += instance.OnThrusterRight;
-                @ThrusterRight.performed += instance.OnThrusterRight;
-                @ThrusterRight.canceled += instance.OnThrusterRight;
-                @ThrusterCenter.started += instance.OnThrusterCenter;
-                @ThrusterCenter.performed += instance.OnThrusterCenter;
-                @ThrusterCenter.canceled += instance.OnThrusterCenter;
             }
         }
     }
     public HumanoidActions @Humanoid => new HumanoidActions(this);
+
+    // Thruster
+    private readonly InputActionMap m_Thruster;
+    private IThrusterActions m_ThrusterActionsCallbackInterface;
+    private readonly InputAction m_Thruster_ForceLeft;
+    private readonly InputAction m_Thruster_ForceRight;
+    private readonly InputAction m_Thruster_ForceCenter;
+    public struct ThrusterActions
+    {
+        private @Controls m_Wrapper;
+        public ThrusterActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ForceLeft => m_Wrapper.m_Thruster_ForceLeft;
+        public InputAction @ForceRight => m_Wrapper.m_Thruster_ForceRight;
+        public InputAction @ForceCenter => m_Wrapper.m_Thruster_ForceCenter;
+        public InputActionMap Get() { return m_Wrapper.m_Thruster; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ThrusterActions set) { return set.Get(); }
+        public void SetCallbacks(IThrusterActions instance)
+        {
+            if (m_Wrapper.m_ThrusterActionsCallbackInterface != null)
+            {
+                @ForceLeft.started -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceLeft;
+                @ForceLeft.performed -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceLeft;
+                @ForceLeft.canceled -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceLeft;
+                @ForceRight.started -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceRight;
+                @ForceRight.performed -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceRight;
+                @ForceRight.canceled -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceRight;
+                @ForceCenter.started -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceCenter;
+                @ForceCenter.performed -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceCenter;
+                @ForceCenter.canceled -= m_Wrapper.m_ThrusterActionsCallbackInterface.OnForceCenter;
+            }
+            m_Wrapper.m_ThrusterActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ForceLeft.started += instance.OnForceLeft;
+                @ForceLeft.performed += instance.OnForceLeft;
+                @ForceLeft.canceled += instance.OnForceLeft;
+                @ForceRight.started += instance.OnForceRight;
+                @ForceRight.performed += instance.OnForceRight;
+                @ForceRight.canceled += instance.OnForceRight;
+                @ForceCenter.started += instance.OnForceCenter;
+                @ForceCenter.performed += instance.OnForceCenter;
+                @ForceCenter.canceled += instance.OnForceCenter;
+            }
+        }
+    }
+    public ThrusterActions @Thruster => new ThrusterActions(this);
+
+    // Grappling Hook
+    private readonly InputActionMap m_GrapplingHook;
+    private IGrapplingHookActions m_GrapplingHookActionsCallbackInterface;
+    private readonly InputAction m_GrapplingHook_TriggerLeft;
+    private readonly InputAction m_GrapplingHook_TriggerRight;
+    private readonly InputAction m_GrapplingHook_TriggerCenter;
+    public struct GrapplingHookActions
+    {
+        private @Controls m_Wrapper;
+        public GrapplingHookActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TriggerLeft => m_Wrapper.m_GrapplingHook_TriggerLeft;
+        public InputAction @TriggerRight => m_Wrapper.m_GrapplingHook_TriggerRight;
+        public InputAction @TriggerCenter => m_Wrapper.m_GrapplingHook_TriggerCenter;
+        public InputActionMap Get() { return m_Wrapper.m_GrapplingHook; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GrapplingHookActions set) { return set.Get(); }
+        public void SetCallbacks(IGrapplingHookActions instance)
+        {
+            if (m_Wrapper.m_GrapplingHookActionsCallbackInterface != null)
+            {
+                @TriggerLeft.started -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerLeft;
+                @TriggerLeft.performed -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerLeft;
+                @TriggerLeft.canceled -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerLeft;
+                @TriggerRight.started -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerRight;
+                @TriggerRight.performed -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerRight;
+                @TriggerRight.canceled -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerRight;
+                @TriggerCenter.started -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerCenter;
+                @TriggerCenter.performed -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerCenter;
+                @TriggerCenter.canceled -= m_Wrapper.m_GrapplingHookActionsCallbackInterface.OnTriggerCenter;
+            }
+            m_Wrapper.m_GrapplingHookActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TriggerLeft.started += instance.OnTriggerLeft;
+                @TriggerLeft.performed += instance.OnTriggerLeft;
+                @TriggerLeft.canceled += instance.OnTriggerLeft;
+                @TriggerRight.started += instance.OnTriggerRight;
+                @TriggerRight.performed += instance.OnTriggerRight;
+                @TriggerRight.canceled += instance.OnTriggerRight;
+                @TriggerCenter.started += instance.OnTriggerCenter;
+                @TriggerCenter.performed += instance.OnTriggerCenter;
+                @TriggerCenter.canceled += instance.OnTriggerCenter;
+            }
+        }
+    }
+    public GrapplingHookActions @GrapplingHook => new GrapplingHookActions(this);
 
     // General
     private readonly InputActionMap m_General;
@@ -666,12 +736,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnTurn(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnGrapplingHookLeft(InputAction.CallbackContext context);
-        void OnGrapplingHookRight(InputAction.CallbackContext context);
-        void OnGrapplingHookCenter(InputAction.CallbackContext context);
-        void OnThrusterLeft(InputAction.CallbackContext context);
-        void OnThrusterRight(InputAction.CallbackContext context);
-        void OnThrusterCenter(InputAction.CallbackContext context);
+    }
+    public interface IThrusterActions
+    {
+        void OnForceLeft(InputAction.CallbackContext context);
+        void OnForceRight(InputAction.CallbackContext context);
+        void OnForceCenter(InputAction.CallbackContext context);
+    }
+    public interface IGrapplingHookActions
+    {
+        void OnTriggerLeft(InputAction.CallbackContext context);
+        void OnTriggerRight(InputAction.CallbackContext context);
+        void OnTriggerCenter(InputAction.CallbackContext context);
     }
     public interface IGeneralActions
     {
