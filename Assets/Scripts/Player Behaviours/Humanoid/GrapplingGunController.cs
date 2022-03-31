@@ -88,8 +88,8 @@ public class GrapplingGunController : MonoBehaviour
             _joint.maxDistance = _distance;
             _joint.minDistance = 0;
 
-            _joint.spring = 04.5f;
-            _joint.damper = 7f;
+            _joint.spring = 4.5f * player.GetComponent<Rigidbody>().mass;
+            _joint.damper = 7f * player.GetComponent<Rigidbody>().mass;
             _joint.massScale = 4.5f;
             _joint.tolerance = 0.01f;
         }
