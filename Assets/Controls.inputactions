@@ -360,6 +360,34 @@
             ]
         },
         {
+            "name": "Spawner",
+            "id": "5c50141f-81c9-4a83-bcbc-be4158380665",
+            "actions": [
+                {
+                    "name": "Spawn",
+                    "type": "Button",
+                    "id": "8d16fbfc-e7db-4a4b-905a-a9eda6ce2aa2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7e4f9de1-4738-434b-9104-494ec974bf77",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "GenericVR",
+                    "action": "Spawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "General",
             "id": "b13699ec-2f10-49bc-b88f-0f3574ab07a5",
             "actions": [

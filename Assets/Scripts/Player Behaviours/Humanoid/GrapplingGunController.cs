@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(LineRenderer))]
 public class GrapplingGunController : MonoBehaviour
 {
-    private Controls _controls;
-
     private LineRenderer _lineRenderer;
     
     private Vector3 _grapplePoint;
@@ -24,8 +22,6 @@ public class GrapplingGunController : MonoBehaviour
 
     void Awake()
     {
-        _controls = new Controls();
-
         _lineRenderer = GetComponent<LineRenderer>();
         _lineRenderer.useWorldSpace = true;
 

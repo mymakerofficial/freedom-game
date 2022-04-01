@@ -382,6 +382,34 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""Spawner"",
+            ""id"": ""5c50141f-81c9-4a83-bcbc-be4158380665"",
+            ""actions"": [
+                {
+                    ""name"": ""Spawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d16fbfc-e7db-4a4b-905a-a9eda6ce2aa2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7e4f9de1-4738-434b-9104-494ec974bf77"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""GenericVR"",
+                    ""action"": ""Spawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""General"",
             ""id"": ""b13699ec-2f10-49bc-b88f-0f3574ab07a5"",
             ""actions"": [
@@ -475,6 +503,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_GrapplingHook_TriggerLeft = m_GrapplingHook.FindAction("Trigger Left", throwIfNotFound: true);
         m_GrapplingHook_TriggerRight = m_GrapplingHook.FindAction("Trigger Right", throwIfNotFound: true);
         m_GrapplingHook_TriggerCenter = m_GrapplingHook.FindAction("Trigger Center", throwIfNotFound: true);
+        // Spawner
+        m_Spawner = asset.FindActionMap("Spawner", throwIfNotFound: true);
+        m_Spawner_Spawn = m_Spawner.FindAction("Spawn", throwIfNotFound: true);
         // General
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
         m_General_Escape = m_General.FindAction("Escape", throwIfNotFound: true);
@@ -681,6 +712,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public GrapplingHookActions @GrapplingHook => new GrapplingHookActions(this);
 
+    // Spawner
+    private readonly InputActionMap m_Spawner;
+    private ISpawnerActions m_SpawnerActionsCallbackInterface;
+    private readonly InputAction m_Spawner_Spawn;
+    public struct SpawnerActions
+    {
+        private @Controls m_Wrapper;
+        public SpawnerActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Spawn => m_Wrapper.m_Spawner_Spawn;
+        public InputActionMap Get() { return m_Wrapper.m_Spawner; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SpawnerActions set) { return set.Get(); }
+        public void SetCallbacks(ISpawnerActions instance)
+        {
+            if (m_Wrapper.m_SpawnerActionsCallbackInterface != null)
+            {
+                @Spawn.started -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawn;
+                @Spawn.performed -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawn;
+                @Spawn.canceled -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawn;
+            }
+            m_Wrapper.m_SpawnerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Spawn.started += instance.OnSpawn;
+                @Spawn.performed += instance.OnSpawn;
+                @Spawn.canceled += instance.OnSpawn;
+            }
+        }
+    }
+    public SpawnerActions @Spawner => new SpawnerActions(this);
+
     // General
     private readonly InputActionMap m_General;
     private IGeneralActions m_GeneralActionsCallbackInterface;
@@ -748,6 +812,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnTriggerLeft(InputAction.CallbackContext context);
         void OnTriggerRight(InputAction.CallbackContext context);
         void OnTriggerCenter(InputAction.CallbackContext context);
+    }
+    public interface ISpawnerActions
+    {
+        void OnSpawn(InputAction.CallbackContext context);
     }
     public interface IGeneralActions
     {
