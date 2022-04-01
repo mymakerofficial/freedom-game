@@ -105,7 +105,7 @@ public class GrapplingGunController : MonoBehaviour
             Vector3 positionDelta = ((transform.position - player.position) - _lastPosition);
             _lastPosition = transform.position - player.position;
 
-            float playerPullMultiplier = 1;
+            float playerPullMultiplier = player.GetComponent<Rigidbody>().mass;
 
             if (_hasRigidbody)
             {
@@ -114,7 +114,7 @@ public class GrapplingGunController : MonoBehaviour
                 _grappleHit.GetComponent<Rigidbody>().AddForce(positionDelta * 5, ForceMode.Force);
 
                 playerPullMultiplier =
-                    _grappleHit.GetComponent<Rigidbody>().mass / player.GetComponent<Rigidbody>().mass;
+                    (_grappleHit.GetComponent<Rigidbody>().mass / player.GetComponent<Rigidbody>().mass) * player.GetComponent<Rigidbody>().mass;
             }
 
             player.GetComponent<Rigidbody>().AddForce(-positionDelta * 16 * playerPullMultiplier, ForceMode.Impulse);
