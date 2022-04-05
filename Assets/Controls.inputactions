@@ -215,7 +215,7 @@
                 {
                     "name": "",
                     "id": "26c422ed-c57b-4101-9bff-10557f54375c",
-                    "path": "<XRController>{LeftHand}/grip",
+                    "path": "<XRInputV1::Valve::IndexControllerOpenXR>{LeftHand}/gripforce",
                     "interactions": "",
                     "processors": "",
                     "groups": "GenericVR",
@@ -226,7 +226,7 @@
                 {
                     "name": "",
                     "id": "30a0bc27-66e3-42b2-94b4-cdb52550a0ce",
-                    "path": "<XRController>{RightHand}/grip",
+                    "path": "<XRInputV1::Valve::IndexControllerOpenXR>{RightHand}/gripforce",
                     "interactions": "",
                     "processors": "",
                     "groups": "GenericVR",
@@ -364,7 +364,16 @@
             "id": "5c50141f-81c9-4a83-bcbc-be4158380665",
             "actions": [
                 {
-                    "name": "Spawn",
+                    "name": "Spawn Left",
+                    "type": "Button",
+                    "id": "67dc9ecc-cb50-480f-882a-2746222d3695",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spawn Right",
                     "type": "Button",
                     "id": "8d16fbfc-e7db-4a4b-905a-a9eda6ce2aa2",
                     "expectedControlType": "Button",
@@ -381,7 +390,18 @@
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "GenericVR",
-                    "action": "Spawn",
+                    "action": "Spawn Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8d982f8-fb1d-45ae-83b2-1eecc77e6a3d",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

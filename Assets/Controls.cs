@@ -237,7 +237,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""26c422ed-c57b-4101-9bff-10557f54375c"",
-                    ""path"": ""<XRController>{LeftHand}/grip"",
+                    ""path"": ""<XRInputV1::Valve::IndexControllerOpenXR>{LeftHand}/gripforce"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
@@ -248,7 +248,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30a0bc27-66e3-42b2-94b4-cdb52550a0ce"",
-                    ""path"": ""<XRController>{RightHand}/grip"",
+                    ""path"": ""<XRInputV1::Valve::IndexControllerOpenXR>{RightHand}/gripforce"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
@@ -386,7 +386,16 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""id"": ""5c50141f-81c9-4a83-bcbc-be4158380665"",
             ""actions"": [
                 {
-                    ""name"": ""Spawn"",
+                    ""name"": ""Spawn Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""67dc9ecc-cb50-480f-882a-2746222d3695"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spawn Right"",
                     ""type"": ""Button"",
                     ""id"": ""8d16fbfc-e7db-4a4b-905a-a9eda6ce2aa2"",
                     ""expectedControlType"": ""Button"",
@@ -403,7 +412,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""GenericVR"",
-                    ""action"": ""Spawn"",
+                    ""action"": ""Spawn Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8d982f8-fb1d-45ae-83b2-1eecc77e6a3d"",
+                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spawn Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -505,7 +525,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_GrapplingHook_TriggerCenter = m_GrapplingHook.FindAction("Trigger Center", throwIfNotFound: true);
         // Spawner
         m_Spawner = asset.FindActionMap("Spawner", throwIfNotFound: true);
-        m_Spawner_Spawn = m_Spawner.FindAction("Spawn", throwIfNotFound: true);
+        m_Spawner_SpawnLeft = m_Spawner.FindAction("Spawn Left", throwIfNotFound: true);
+        m_Spawner_SpawnRight = m_Spawner.FindAction("Spawn Right", throwIfNotFound: true);
         // General
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
         m_General_Escape = m_General.FindAction("Escape", throwIfNotFound: true);
@@ -715,12 +736,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     // Spawner
     private readonly InputActionMap m_Spawner;
     private ISpawnerActions m_SpawnerActionsCallbackInterface;
-    private readonly InputAction m_Spawner_Spawn;
+    private readonly InputAction m_Spawner_SpawnLeft;
+    private readonly InputAction m_Spawner_SpawnRight;
     public struct SpawnerActions
     {
         private @Controls m_Wrapper;
         public SpawnerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Spawn => m_Wrapper.m_Spawner_Spawn;
+        public InputAction @SpawnLeft => m_Wrapper.m_Spawner_SpawnLeft;
+        public InputAction @SpawnRight => m_Wrapper.m_Spawner_SpawnRight;
         public InputActionMap Get() { return m_Wrapper.m_Spawner; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -730,16 +753,22 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_SpawnerActionsCallbackInterface != null)
             {
-                @Spawn.started -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawn;
-                @Spawn.performed -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawn;
-                @Spawn.canceled -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawn;
+                @SpawnLeft.started -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawnLeft;
+                @SpawnLeft.performed -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawnLeft;
+                @SpawnLeft.canceled -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawnLeft;
+                @SpawnRight.started -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawnRight;
+                @SpawnRight.performed -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawnRight;
+                @SpawnRight.canceled -= m_Wrapper.m_SpawnerActionsCallbackInterface.OnSpawnRight;
             }
             m_Wrapper.m_SpawnerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Spawn.started += instance.OnSpawn;
-                @Spawn.performed += instance.OnSpawn;
-                @Spawn.canceled += instance.OnSpawn;
+                @SpawnLeft.started += instance.OnSpawnLeft;
+                @SpawnLeft.performed += instance.OnSpawnLeft;
+                @SpawnLeft.canceled += instance.OnSpawnLeft;
+                @SpawnRight.started += instance.OnSpawnRight;
+                @SpawnRight.performed += instance.OnSpawnRight;
+                @SpawnRight.canceled += instance.OnSpawnRight;
             }
         }
     }
@@ -815,7 +844,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public interface ISpawnerActions
     {
-        void OnSpawn(InputAction.CallbackContext context);
+        void OnSpawnLeft(InputAction.CallbackContext context);
+        void OnSpawnRight(InputAction.CallbackContext context);
     }
     public interface IGeneralActions
     {

@@ -1,28 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+//using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class ThrownObjectController : MonoBehaviour
 {
+    private Vector3 _startPosition;
+
+    public float scaleDistance = 20;
+    public AnimationCurve scaleCurve;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        _startPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float distance = Vector3.Distance(_startPosition, transform.position);
+        float scaledDistance = distance / scaleDistance;
+        
+        float scale = scaleCurve.Evaluate(scaledDistance);
+        
         transform.localScale = new Vector3(
-            transform.localScale.x + 0.01f, 
-            transform.localScale.y + 0.01f, 
-            transform.localScale.z + 0.01f
+            scale, 
+            scale, 
+            scale
         );
 
-        if (transform.localScale.x >= 1)
-        {
-            Destroy(GetComponent<ThrownObjectController>());
-        }
     }
 }
